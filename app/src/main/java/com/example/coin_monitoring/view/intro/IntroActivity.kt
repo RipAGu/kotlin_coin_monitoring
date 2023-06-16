@@ -1,19 +1,14 @@
 package com.example.coin_monitoring.view.intro
 
 import android.content.Intent
-import android.os.Binder
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModel
-import com.example.coin_monitoring.MainActivity
-import com.example.coin_monitoring.R
+import com.example.coin_monitoring.view.main.MainActivity
 import com.example.coin_monitoring.databinding.ActivityIntroBinding
-import com.example.coin_monitoring.databinding.ActivitySelectBinding
-import timber.log.Timber
 
 class IntroActivity : AppCompatActivity() {
 
