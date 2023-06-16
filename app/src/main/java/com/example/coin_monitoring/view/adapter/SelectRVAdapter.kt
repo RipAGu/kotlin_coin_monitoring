@@ -17,13 +17,15 @@ import org.w3c.dom.Text
 class SelectRVAdapter(val context : Context, val coinPriceList : List<CurrentPriceResult>)
     : RecyclerView.Adapter<SelectRVAdapter.ViewHolder>(){
 
-        inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
-            val coinName : TextView = view.findViewById(R.id.coinName)
-            val coinPriceUpDown : TextView = view.findViewById(R.id.coinPriceUpDown)
-            val likeImage : ImageView = view.findViewById(R.id.likeBtn)
+    val selectedCoinList = ArrayList<String>()
+
+    inner class ViewHolder(view : View) : RecyclerView.ViewHolder(view){
+        val coinName : TextView = view.findViewById(R.id.coinName)
+        val coinPriceUpDown : TextView = view.findViewById(R.id.coinPriceUpDown)
+        val likeImage : ImageView = view.findViewById(R.id.likeBtn)
 
 
-        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.intro_coin_item, parent, false)
@@ -49,9 +51,28 @@ class SelectRVAdapter(val context : Context, val coinPriceList : List<CurrentPri
         }
 
         val likeImage = holder.likeImage
+        val currentCoin = coinPriceList[position].coinName
+
+        //view 를 그려줄 때
+        if (selectedCoinList.contains(currentCoin)){
+            likeImage.setImageResource((R.drawable.like_grey))
+
+        } else{
+            likeImage.setImageResource(R.drawable.like_red)
+
+        }
 
         likeImage.setOnClickListener{
-            likeImage.setImageResource(R.drawable.like_red)
+
+            if (selectedCoinList.contains(currentCoin)){
+                selectedCoinList.remove(currentCoin)
+                likeImage.setImageResource((R.drawable.like_grey))
+
+            } else{
+                selectedCoinList.add(currentCoin)
+                likeImage.setImageResource(R.drawable.like_red)
+
+            }
         }
     }
 
