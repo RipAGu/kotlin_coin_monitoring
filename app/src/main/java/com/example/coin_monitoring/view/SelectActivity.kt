@@ -32,7 +32,6 @@ class SelectActivity : AppCompatActivity() {
 
             binding.coinListRV.adapter = selectRVAdapter
             binding.coinListRV.layoutManager = LinearLayoutManager(this)
-            Timber.d(it.toString())
         })
 
 
