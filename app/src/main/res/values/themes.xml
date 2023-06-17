@@ -8,7 +8,7 @@
         <item name="colorOnPrimary">@color/white</item>
 
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <item name="android:textColor">#ff000f</item>
+        <item name="android:textColor">@color/black</item>
 
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
