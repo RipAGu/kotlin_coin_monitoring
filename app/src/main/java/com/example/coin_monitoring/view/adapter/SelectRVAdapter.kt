@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.ColorStateList
 import android.graphics.Color
 import android.text.Layout
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,10 +56,10 @@ class SelectRVAdapter(val context : Context, val coinPriceList : List<CurrentPri
 
         //view 를 그려줄 때
         if (selectedCoinList.contains(currentCoin)){
-            likeImage.setImageResource((R.drawable.like_grey))
+            likeImage.setImageResource((R.drawable.like_red))
 
         } else{
-            likeImage.setImageResource(R.drawable.like_red)
+            likeImage.setImageResource(R.drawable.like_grey)
 
         }
 
@@ -73,6 +74,8 @@ class SelectRVAdapter(val context : Context, val coinPriceList : List<CurrentPri
                 likeImage.setImageResource(R.drawable.like_red)
 
             }
+
+            Log.d("status", selectedCoinList.toString())
         }
     }
 
