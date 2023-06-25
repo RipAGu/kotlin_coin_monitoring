@@ -9,6 +9,7 @@ data class InterestCoinEntity(
 
     @PrimaryKey(autoGenerate = true)
     val id : Int,
+    val coin_name : String,
     val opening_price : String,
     val closing_price : String,
     val min_price : String,
@@ -20,5 +21,5 @@ data class InterestCoinEntity(
     val acc_trade_value_24H : String,
     val fluctate_24H : String,
     val fluctate_rate_24H : String,
-    val selected : Boolean
+    var selected : Boolean
 )

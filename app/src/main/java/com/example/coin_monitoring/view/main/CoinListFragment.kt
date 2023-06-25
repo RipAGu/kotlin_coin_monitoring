@@ -68,9 +68,27 @@ class CoinListFragment : Fragment() {
         binding!!.selectedCoinRV.adapter = selectedRVAdapter
         binding!!.selectedCoinRV.layoutManager = LinearLayoutManager(requireContext())
 
+        selectedRVAdapter.itemClick = object : CoinListRVAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+
+                viewModel.updateInterestCoinData(selectedList[position])
+
+
+
+            }
+        }
+
         val unSelectedRVAdapter = CoinListRVAdapter(requireContext(), unSelectedList)
-        binding!!.unSelectedCoinRV.adapter = selectedRVAdapter
+        binding!!.unSelectedCoinRV.adapter = unSelectedRVAdapter
         binding!!.unSelectedCoinRV.layoutManager = LinearLayoutManager(requireContext())
+
+        unSelectedRVAdapter.itemClick = object : CoinListRVAdapter.ItemClick {
+            override fun onClick(view: View, position: Int) {
+                viewModel.updateInterestCoinData(unSelectedList[position])
+
+
+            }
+        }
 
     }
 
