@@ -1,10 +1,12 @@
 package com.example.coin_monitoring.background
 
 import android.content.Context
+import android.net.Network
 import android.util.Log
 import androidx.work.CoroutineWorker
 import androidx.work.WorkerParameters
 import com.example.coin_monitoring.repository.DBRepository
+import com.example.coin_monitoring.repository.NetworkRepository
 import kotlinx.coroutines.flow.collect
 import timber.log.Timber
 
@@ -13,6 +15,7 @@ import timber.log.Timber
 class GetCoinPriceRecentContractedWorkManager(val context : Context, workerParameters: WorkerParameters) : CoroutineWorker(context, workerParameters) {
 
     private val dbRepository = DBRepository()
+    private val networkRepository = NetworkRepository()
 
     override suspend fun doWork(): Result {
 
@@ -27,6 +30,8 @@ class GetCoinPriceRecentContractedWorkManager(val context : Context, workerParam
         dbRepository.getAllInterestSelectedCoinData().collect { selectedCoinList ->
             for (coinData in selectedCoinList) {
                 Log.d("selectedCoinList", coinData.toString())
+
+                val recentCoinPriceList = networkRepository.getInterestCoinPriceData(coinData.coin_name)
             }
         }
     }
