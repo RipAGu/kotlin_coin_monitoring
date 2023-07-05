@@ -6,9 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.coin_monitoring.R
+import com.example.coin_monitoring.databinding.FragmentPriceChangeBinding
 
 
 class PriceChangeFragment : Fragment() {
+    private var _binding : FragmentPriceChangeBinding? = null
+    private val binding get() = _binding!!
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -21,8 +27,10 @@ class PriceChangeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        _binding= FragmentPriceChangeBinding.inflate(inflater, container, false)
+        val view = binding.root
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_price_change, container, false)
+        return view
     }
 
 

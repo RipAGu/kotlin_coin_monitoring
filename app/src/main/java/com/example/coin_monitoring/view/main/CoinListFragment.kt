@@ -47,6 +47,7 @@ class CoinListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?)  {
         super.onViewCreated(view, savedInstanceState)
 
+
         viewModel.getAllInterestCoinData()
         viewModel.selectedCoinList.observe(viewLifecycleOwner, Observer {
             selectedList.clear()
